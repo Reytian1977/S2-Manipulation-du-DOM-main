@@ -5,40 +5,51 @@ const panier = {
 }
 
 // Pour afficher le nombre de pommes dans la facture détaillée
-document.querySelector("#qtePommes").textContent = panier.pommes;
+//document.querySelector("#qtePommes").textContent = panier.pommes;
 
 
 function Ajouter(fruit) {
     let Prix;
     let Poids;
-    let id;
+    let Qte = 1;
+    let idPoids;
+    let idPrix;
+    let idQte;
 
-    if(fruit === 1)
-    {
+    if (fruit === 1) {
         Prix = 13.50;
         Poids = 10;
-        id = "poidsPommes";
+        idPoids = "poidsPommes";
+        idPrix = "prixPommes";
+        idQte = "qtePommes";
     }
-    if(fruit === 2)
-    {
-        Prix = 20.00;
-        Poids = 12;
-        id = "poidsPoires";
+    if (fruit === 2) {
+        Prix = document.getElementById("prixpoire");
+        Poids = document.getElementById("poidspoire");
+        idPoids = "poidsPoires";
+        idPrix = "prixPoires";
+        idQte = "qtePoires";
     }
-    if(fruit === 3)
-    {
-        Prix = 22.00;
-        Poids = 15;
-        id = "poidsPrunes";
+    if (fruit === 3) {
+        Prix = document.getElementById("prixprune");
+        Poids = document.getElementById("poidprune");
+        idPoids = "poidsPrunes";
+        idPrix = "prixPrunes";
+        idQte = "qtePrunes";
     }
 
     // Mettre à jour la Quantité
-    let Qte = document.getElementById("qtePommes").innerText;
-    let NewQte = +Qte + +Qte;
-    document.getElementById("qtePommes").innerText = NewQte;
+    let anQte = document.getElementById(idQte).innerText;
+    let NewQte = +anQte + +Qte;
+    document.getElementById(idQte).innerText = NewQte;
 
     // Mettre à jour le Poids
-    Poids = document.getElementById(id).innerText;
-    let NewPoids = +Poids + +Poids;
-    document.getElementById(id).innerText = NewPoids;
+    let anPoids = document.getElementById(idPoids).innerText;
+    let NewPoids = +anPoids + +Poids;
+    document.getElementById(idPoids).innerText = NewPoids;
+
+    // Mettre à jour le Prix
+    let anPrix = document.getElementById(idPrix).innerText;
+    let NewPrix = +anPrix + +Prix;
+    document.getElementById(idPrix).innerText = NewPrix;
 }
