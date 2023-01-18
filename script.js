@@ -53,3 +53,4 @@ function Ajouter(fruit) {
     let NewPrix = +anPrix + +Prix;
     document.getElementById(idPrix).innerText = NewPrix;
 }
+// falta mas
