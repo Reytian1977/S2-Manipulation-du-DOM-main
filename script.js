@@ -7,9 +7,6 @@ const panier = {
 // Pour afficher le nombre de pommes dans la facture détaillée
 //document.querySelector("#qtePommes").textContent = panier.pommes;
 
-let QteTotal = 0;
-let PrixTotal = 0;
-let PoidsTotal = 0;
 let Prix;
 let Poids;
 let Qte = 1;
@@ -73,7 +70,6 @@ function Ajouter(fruit) {
     let anPrixTotal = document.getElementById("prixTotal").innerText;
     let NewPrixTotal = +anPrixTotal + +Prix;
     document.getElementById("prixTotal").innerText = NewPrixTotal;
-
 }
 
 
