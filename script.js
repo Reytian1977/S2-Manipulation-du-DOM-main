@@ -7,32 +7,36 @@ const panier = {
 // Pour afficher le nombre de pommes dans la facture détaillée
 //document.querySelector("#qtePommes").textContent = panier.pommes;
 
+let QteTotal = 0;
+let PrixTotal = 0;
+let PoidsTotal = 0;
+let Prix;
+let Poids;
+let Qte = 1;
+let idPoids;
+let idPrix;
+let idQte;
 
 function Ajouter(fruit) {
-    let Prix;
-    let Poids;
-    let Qte = 1;
-    let idPoids;
-    let idPrix;
-    let idQte;
+
 
     if (fruit === 1) {
-        Prix = 13.50;
-        Poids = 10;
+        Prix = parseFloat(document.getElementById("prixpomme").innerText);
+        Poids = parseFloat(document.getElementById("poidspomme").innerText);
         idPoids = "poidsPommes";
         idPrix = "prixPommes";
         idQte = "qtePommes";
     }
     if (fruit === 2) {
-        Prix = document.getElementById("prixpoire");
-        Poids = document.getElementById("poidspoire");
+        Prix = parseFloat(document.getElementById("prixpoire").innerText);
+        Poids = parseFloat(document.getElementById("poidspoire").innerText);
         idPoids = "poidsPoires";
         idPrix = "prixPoires";
         idQte = "qtePoires";
     }
     if (fruit === 3) {
-        Prix = document.getElementById("prixprune");
-        Poids = document.getElementById("poidprune");
+        Prix = parseFloat(document.getElementById("prixprune").innerText);
+        Poids = parseFloat(document.getElementById("poidprune").innerText);
         idPoids = "poidsPrunes";
         idPrix = "prixPrunes";
         idQte = "qtePrunes";
@@ -52,5 +56,25 @@ function Ajouter(fruit) {
     let anPrix = document.getElementById(idPrix).innerText;
     let NewPrix = +anPrix + +Prix;
     document.getElementById(idPrix).innerText = NewPrix;
+
+    // ------------------------Mettre à jour le Total
+
+    // Mettre à jour le Qte total
+    let anQteTotal = document.getElementById("qteTotal").innerText;
+    let NewQteTotal = +anQteTotal + 1;
+    document.getElementById("qteTotal").innerText = NewQteTotal;
+
+    // Mettre à jour le Poids total
+    let anPoidsTotal = document.getElementById("poidsTotal").innerText;
+    let NewPoidsTotal = +anPoidsTotal + Poids;
+    document.getElementById("poidsTotal").innerText = NewPoidsTotal;
+
+    // Mettre à jour le Poids total
+    let anPrixTotal = document.getElementById("prixTotal").innerText;
+    let NewPrixTotal = +anPrixTotal + +Prix;
+    document.getElementById("prixTotal").innerText = NewPrixTotal;
+
 }
-// falta mas
+
+
+
